@@ -68,3 +68,15 @@ function toggleMobileMenu() {
   if (!menu) return;
   menu.classList.toggle("active");
 }
+
+function sendWhatsApp() {
+  const phoneNumber = "9779761408246"; // no + sign
+  const message = encodeURIComponent(
+    "Hi Voice Tech Nepal! I want to book a seat.\n\nName:\nAge:\nPreferred time:\nOnline/Offline:"
+  );
+
+  // wa.me works best on mobile + desktop
+  const url = `https://wa.me/${phoneNumber}?text=${message}`;
+  window.open(url, "_blank", "noopener,noreferrer");
+}
+
