@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Courses · Voice Tech Nepal</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container navbar">
+      <div class="brand brand-home" onclick="location.href='index.html'" role="link" aria-label="Go to home">
+        <div class="brand-logo">
+          <img src="assets/images/logo-circle.jpg" alt="Voice Tech Nepal logo">
+        </div>
+        <div class="brand-text">
+          <h1>Voice Tech Nepal</h1>
+          <small>मेरो आवाज, मेरो परिवर्तनको शक्ति</small>
+        </div>
+      </div>
+      <nav>
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Open menu">
+        ☰
+      </button>
+      <ul id="mobileMenu">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="courses.html" class="btn-pill">Courses</a></li>
+          <li><a href="teachers.html">Coaches</a></li>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="resources.html">Resources</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-hero">
+      <h1>Courses We Offer</h1>
+      <p>Pick the track that matches your current goal. All courses are practical and speaking‑focused.</p>
+    </section>
+
+    <section class="section">
+      <div class="card-grid">
+        <article class="simple-card">
+          <h2>APSC — Advanced Public Speaking</h2>
+          <p>Delivery, storytelling and stage command for students, professionals and leaders.</p>
+        </article>
+        <article class="simple-card">
+          <h2>Leadership & Personality Mastery Workshop</h2>
+          <p>Develop leadership mindset, presence and confidence for school, college and career.</p>
+        </article>
+        <article class="simple-card">
+          <h2>English Language & Fluency</h2>
+          <p>Conversation, pronunciation and day‑to‑day speaking practice.</p>
+        </article>
+        <article class="simple-card">
+          <h2>IELTS / PTE Preparation</h2>
+          <p>Speaking, reading, writing and listening practice with mock tests and feedback.</p>
+        </article>
+        <article class="simple-card">
+          <h2>Kids Public Speaking</h2>
+          <p>Fun‑based communication and confidence building for children.</p>
+        </article>
+        <article class="simple-card">
+          <h2>Awareness & Community Workshops</h2>
+          <p>Voice, communication and leadership training in schools, colleges and organisations.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2025 Voice Tech Nepal
+    </div>
+  </footer>
+
+  <div class="whatsapp-float" onclick="sendWhatsApp()">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp chat">
+  </div>
+  <div class="sticky-book">
+    <button onclick="sendWhatsApp()">BOOK YOUR SEAT NOW ON WHATSAPP</button>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
