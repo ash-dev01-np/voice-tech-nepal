@@ -294,12 +294,17 @@ nav a:hover {
 
 /* Sections */
 .section {
-  padding: 70px 0;
+  padding: 64px 0;
 }
 
 .section-title {
   text-align: center;
-  margin-bottom: 26px;
+  margin-bottom: 32px;
+}
+
+.section-title p {
+  max-width: 680px;
+  margin: 6px auto 0;
 }
 
 .section-title h2 {
@@ -319,9 +324,12 @@ nav a:hover {
   gap: 16px;
 }
 
+.pill-grid--three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.pill-grid--four  { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
 .pill {
   border-radius: 999px;
-  padding: 12px 18px;
+  padding: 14px 24px;
   background: rgba(255,255,255,0.9);
   box-shadow: 0 12px 30px rgba(15,23,42,0.06);
   display: flex;
@@ -408,8 +416,13 @@ nav a:hover {
 /* Gallery */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
+}
+
+.gallery-item:first-child {
+  grid-column: span 2;
+  grid-row: span 2;
 }
 
 .gallery-item {
@@ -423,9 +436,12 @@ nav a:hover {
 .gallery-item img {
   width: 100%;
   height: 100%;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   display: block;
 }
+
+.gallery-item:first-child img { aspect-ratio: auto; }
 
 /* Contact */
 .contact-grid {
@@ -454,6 +470,13 @@ nav a:hover {
   font-weight: 600;
   color: var(--secondary);
 }
+
+.about-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: 24px;
+}
+
+.about-grid .contact-card p + p { margin-top: 8px; }
 
 .contact-note {
   font-size: 0.85rem;
@@ -534,14 +557,66 @@ footer {
   gap: 18px;
 }
 
+.card-grid--three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.card-grid--four  { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
 .simple-card {
   background: var(--white);
-  padding: 18px 18px 16px;
+  padding: 20px 20px 18px;
   border-radius: 16px;
   box-shadow: 0 14px 30px rgba(15,23,42,0.08);
+  display: flex;
+  flex-direction: column;
 }
 
+.simple-card h2,
+.simple-card h3 {
+  font-size: 1.15rem;
+  line-height: 1.35;
+  margin-bottom: 8px;
+  color: var(--secondary);
+}
+
+.simple-card p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.simple-card > a:first-of-type {
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+.simple-card a {
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-decoration: none;
+}
+
+.simple-card a:hover { text-decoration: underline; }
+
 /* Responsive */
+@media (max-width: 1000px) {
+  .pill-grid--four,
+  .card-grid--four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pill-grid--three,
+  .card-grid--three { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 600px) {
+  .section { padding: 48px 0; }
+  .section-title h2 { font-size: 1.6rem; }
+  .section-title { margin-bottom: 24px; }
+  .pill-grid--four,
+  .pill-grid--three,
+  .card-grid--four,
+  .card-grid--three { grid-template-columns: minmax(0, 1fr); }
+  .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .gallery-item:first-child { grid-row: span 1; }
+  .gallery-item:first-child img { aspect-ratio: 16 / 9; }
+}
+
 @media (max-width: 880px) {
   .hero-inner {
     grid-template-columns: minmax(0,1fr);
@@ -551,9 +626,10 @@ footer {
     justify-self: stretch;
   }
 
-  .contact-grid {
+  .contact-grid,
+  .about-grid {
     grid-template-columns: minmax(0,1fr);
-  }  
+  }
 }
 
 /* ===============================
@@ -571,17 +647,10 @@ footer {
 }
 
 /* ===============================
-   ABOUT PAGE – SEQUENTIAL VIDEO STACK
-   (One per row, big but not ugly)
+   VIDEOS
+   Wide videos stay 16:9, upright phone videos stay 9:16,
+   so nothing gets cropped into a thin strip.
 ================================*/
-.about-video-stack{
-  display:flex;
-  flex-direction:column;
-  gap: 28px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
 .about-video-frame{
   position: relative;
   border-radius: 20px;
@@ -589,53 +658,74 @@ footer {
   background: rgba(255,255,255,0.9);
   box-shadow: 0 16px 38px rgba(15,23,42,0.10);
   border: 1px solid rgba(148,163,184,0.28);
+  display: flex;
+  flex-direction: column;
 }
 
 .about-video-frame video{
-  width:100%;
-  display:block;
-  background:#000;
-  /* Big, but capped for phones + midrange Android */
-  height: min(62vh, 520px);
+  width: 100%;
+  display: block;
+  background: #000;
   object-fit: cover;
 }
 
+.video-wide{ aspect-ratio: 16 / 9; }
+.video-tall{ aspect-ratio: 9 / 16; }
+
 .about-video-caption{
   padding: 12px 14px 14px;
-  text-align:center;
+  text-align: center;
   font-size: 0.92rem;
   color: var(--muted);
 }
 
-@media (max-width: 768px){
-  .about-video-frame video{
-    height: 38vh;
-    min-height: 220px;
-  }
-  .about-video-stack{ gap: 18px; }
+.about-video-caption strong{
+  color: var(--secondary);
 }
 
-/* Smaller videos for Practice & Feedback sections */
-.mini-video-frame{
-  border-radius: 18px;
-  overflow: hidden;
-  background: rgba(255,255,255,0.92);
-  box-shadow: 0 14px 30px rgba(15,23,42,0.10);
-  border: 1px solid rgba(148,163,184,0.28);
+/* Intro videos: two wide videos stacked, the upright one beside them */
+.intro-grid{
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: 24px;
   max-width: 1100px;
   margin: 0 auto;
 }
 
-.mini-video{
-  width: 100%;
-  height: min(48vh, 420px);
-  display:block;
-  object-fit: cover;
-  background:#000;
+.intro-tall{
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
+
+.intro-tall video{
+  flex: 1 1 auto;
+  min-height: 0;
+  aspect-ratio: auto;
+}
+
+/* Practice + Feedback side by side */
+.pf-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.pf-col .section-title{ margin-bottom: 20px; }
+.pf-col .section-title h2{ font-size: 1.6rem; }
+
+.pf-video{
+  max-width: 330px;
+  margin: 0 auto;
 }
 
 @media (max-width: 768px){
-  .mini-video{ height: 32vh; min-height: 200px; }
+  .intro-grid{ grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .intro-tall{ grid-column: auto; grid-row: auto; max-width: 300px; width: 100%; margin: 0 auto; }
+  .intro-tall video{ aspect-ratio: 9 / 16; }
+  .pf-grid{ grid-template-columns: minmax(0, 1fr); gap: 48px; }
+  .pf-video{ max-width: 280px; }
 }
 
 /* Subtle grain texture overlay */
@@ -651,54 +741,24 @@ body::before{
     repeating-linear-gradient(90deg, rgba(17,24,39,0.03) 0, rgba(17,24,39,0.03) 1px, transparent 1px, transparent 4px);
 }
 
-/* Make About page use more width (less empty sides) */
-.container-wide{
-  max-width: 1320px;
-}
-@media (max-width: 768px){
-  .container-wide{ max-width: 1200px; }
-}
-
 .brand-home .brand-name,
 .brand-home small{
   text-decoration:none;
   color:inherit;
 }
 
-.location-link a{
-  font-size:.9rem;
-  color: #440a91;
-  text-decoration:none;
-}
-.location-link a:hover{
-  text-decoration:underline;
+/* Location video inside the contact card */
+.location-video{
+  margin-top: 14px;
 }
 
-/* Portrait-friendly video container (location video) */
-.portrait-video video{
-  max-width:420px;     /* ideal for phone-shot video */
-  width:100%;
-  height:auto;
-  max-height:80vh;
-  margin:0 auto;
-  display:block;
-}
-
-/* Ensure divider stays subtle and separate */
-.soft-divider{
-  height:80px;
-  margin:40px auto;
-  max-width:900px;
-  border-radius:24px;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,0.6),
-      rgba(255,255,255,0.95)
-    );
-  backdrop-filter: blur(8px);
-  box-shadow:
-    inset 0 0 0 1px rgba(148,163,184,0.25);
+.location-video video{
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  border-radius: 14px;
+  background: #000;
 }
 
 /* Mobile menu button */
