@@ -17,8 +17,6 @@ export const staggerContainer: Variants = {
   },
 };
 
-// Plain opacity + a small rise — no blur filter, no long delays. Motion
-// here is a light nudge that content has arrived, not a production effect.
 export const revealMedium: Variants = {
   hidden: { opacity: 0, y: 12 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease } },

@@ -3,8 +3,6 @@
 import { MessageCircle } from "lucide-react";
 import { whatsappLink, BOOK_MESSAGE } from "@/lib/content";
 
-// Sticky mobile-only CTA — WhatsApp is how this audience actually books,
-// so the bar keeps that one action reachable with a thumb at all times.
 export default function BookBar() {
   return (
     <a

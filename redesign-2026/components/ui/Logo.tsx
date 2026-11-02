@@ -7,9 +7,6 @@ type LogoProps = {
   markOnly?: boolean;
 };
 
-// The circular mic-in-Nepal-flag mark, same file used on the live site's
-// header. It's a square JPG with a dark backdrop baked in, so it's cropped
-// to a circle here rather than redrawn.
 export function LogoMark({ className }: { className?: string }) {
   return (
     <span className={clsx("relative block shrink-0 overflow-hidden rounded-full", className)}>

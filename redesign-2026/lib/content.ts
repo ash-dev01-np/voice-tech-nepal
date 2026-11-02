@@ -1,7 +1,3 @@
-// Single source of truth for real business details — phone numbers, address,
-// class times. Pulled from the current live site; update here if any of it
-// changes and every section (nav, hero, footer, sticky bar) stays in sync.
-
 export const SITE = {
   name: "Voice Tech Nepal",
   tagline: "मेरो आवाज, मेरो परिवर्तनको शक्ति",
