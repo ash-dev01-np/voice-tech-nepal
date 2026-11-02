@@ -5,32 +5,33 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Voice Tech Nepal — Public Speaking & Communication Academy</title>
   <meta name="description" content="Voice Tech Nepal: 2-week public speaking, leadership and communication bootcamps in Kathmandu with real practice and expert coaching.">
+  <link rel="icon" href="assets/images/logo-circle.jpg">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
   <header>
     <div class="container navbar">
-      <div class="brand brand-home" onclick="window.location.href='index.html#hero'" role="link" aria-label="Go to home">
+      <a class="brand brand-home" href="#hero" aria-label="Go to top">
         <div class="brand-logo">
           <img src="assets/images/logo-circle.jpg" alt="Voice Tech Nepal logo">
         </div>
         <div class="brand-text">
-          <h1>Voice Tech Nepal</h1>
+          <span class="brand-name">Voice Tech Nepal</span>
           <small>मेरो आवाज, मेरो परिवर्तनको शक्ति</small>
         </div>
-      </div>
+      </a>
       <nav>
-        <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Open menu">
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
           ☰
         </button>
         <ul id="mobileMenu">
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="index.html#highlights">Skills</a></li>
-          <li><a href="index.html#schedule">Schedule</a></li>
-          <li><a href="teachers.html">Coaches</a></li>
-          <li><a href="courses.html">Courses</a></li>
-          <li><a href="blogs.html">Blogs</a></li>
-          <li><a href="resources.html">Resources</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#highlights">Skills</a></li>
+          <li><a href="#schedule">Schedule</a></li>
+          <li><a href="#coaches">Coaches</a></li>
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#blogs">Blogs</a></li>
+          <li><a href="#resources">Resources</a></li>
           <li><a class="btn-pill" href="#contact">Book Now</a></li>
         </ul>
       </nav>
@@ -55,7 +56,7 @@
             <span class="badge">Online & Offline options</span>
           </div>
           <div class="hero-cta">
-            <button onclick="sendWhatsApp('9779816002188')">Book</button>
+            <button class="btn-primary" onclick="sendWhatsApp()">Book</button>
             <button class="btn-outline" onclick="document.querySelector('#schedule').scrollIntoView({behavior:'smooth'})">
               View class time
             </button>
@@ -77,6 +78,192 @@
             <p class="hero-tagline">
               “मेरो आवाज, मेरो परिवर्तनको शक्ति” – your voice can change your life and community.
             </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <div class="container container-wide">
+        <div class="section-title">
+          <h2>About Voice Tech Nepal</h2>
+          <p>
+            Voice Tech Nepal is a practical communication and public speaking academy
+            built to help people overcome fear, find confidence, and express themselves
+            clearly in real-life situations.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT: STORY -->
+    <section class="section">
+      <div class="container container-wide">
+        <div class="section-title">
+          <h2>Our Story & Purpose</h2>
+          <p>Why Voice Tech Nepal exists and what makes us different.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <h3>Why We Started</h3>
+            <p>
+              Many capable students and professionals struggle not because they lack
+              knowledge, but because they cannot express themselves confidently.
+              Voice Tech Nepal was created to bridge that gap.
+            </p>
+            <p>
+              We focus on real speaking practice, not theory — so learners grow through
+              experience, feedback, and reflection.
+            </p>
+          </div>
+
+          <div class="contact-card">
+            <h3>Our Training Philosophy</h3>
+            <p>
+              We believe communication is a skill, not a talent.
+              With the right environment and guidance, anyone can become a confident speaker.
+            </p>
+            <p>
+              Our sessions are safe, encouraging, practical, and growth-focused.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT: INTRO VIDEOS -->
+    <section class="section about-videos">
+      <div class="container container-wide">
+        <div class="section-title">
+          <h2>Inside Voice Tech Nepal</h2>
+          <p>Watch the three short introductions — they play one after another (muted) for a smooth preview.</p>
+        </div>
+
+        <div class="about-video-stack">
+          <div class="about-video-frame">
+            <video class="about-intro" src="assets/videos/intro.mp4" muted playsinline controls preload="metadata"></video>
+            <div class="about-video-caption">Introduction 1</div>
+          </div>
+
+          <div class="about-video-frame">
+            <video class="about-intro" src="assets/videos/intro2.mp4" muted playsinline controls preload="metadata"></video>
+            <div class="about-video-caption">Introduction 2</div>
+          </div>
+
+          <div class="about-video-frame">
+            <video class="about-intro" src="assets/videos/intro3.mp4" muted playsinline controls preload="metadata"></video>
+            <div class="about-video-caption">Introduction 3</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about-fill">
+      <div class="container container-wide">
+        <div class="pill-grid">
+          <div class="pill">
+            <span class="icon"></span>
+            <div><strong>Real Practice</strong><br>No theory-heavy lectures</div>
+          </div>
+          <div class="pill">
+            <span class="icon"></span>
+            <div><strong>Safe Space</strong><br>No judgement, only growth</div>
+          </div>
+          <div class="pill">
+            <span class="icon"></span>
+            <div><strong>Visible Progress</strong><br>Confidence within days</div>
+          </div>
+          <div class="pill">
+            <span class="icon"></span>
+            <div><strong>Nepal-focused</strong><br>Real contexts & language issues</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT: PRACTICE SESSION -->
+    <section class="section">
+      <div class="container container-wide">
+        <div class="section-title">
+          <h2>Practice Session</h2>
+          <p>Real practice with structured speaking tasks — the fastest way to build confidence.</p>
+        </div>
+
+        <div class="mini-video-frame">
+          <video class="mini-video" src="assets/videos/practice.mp4" muted playsinline controls preload="metadata"></video>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT: FEEDBACK -->
+    <section class="section">
+      <div class="container container-wide">
+        <div class="section-title">
+          <h2>Feedback & Growth</h2>
+          <p>Feedback is simple, supportive, and focused on fast improvement.</p>
+        </div>
+
+        <div class="mini-video-frame">
+          <video class="mini-video" src="assets/videos/feedback.mp4" muted playsinline controls preload="metadata"></video>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT: WHAT MAKES US DIFFERENT -->
+    <section class="section">
+      <div class="container container-wide">
+        <div class="section-title">
+          <h2>What Makes Us Different</h2>
+          <p>We keep it practical, friendly, and repeatable — so you actually improve, not just feel motivated.</p>
+        </div>
+
+        <div class="card-grid">
+          <article class="simple-card">
+            <h3>Practice First</h3>
+            <p>Every session includes real speaking time — not only theory.</p>
+          </article>
+          <article class="simple-card">
+            <h3>Safe Environment</h3>
+            <p>No shame, no harsh judgement — just guided growth.</p>
+          </article>
+          <article class="simple-card">
+            <h3>Clear Structure</h3>
+            <p>Simple frameworks for speech structure, storytelling and confidence.</p>
+          </article>
+          <article class="simple-card">
+            <h3>Visible Results</h3>
+            <p>Students notice improvement in clarity, voice, and presence within days.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT: IMPACT -->
+    <section class="section">
+      <div class="container container-wide">
+        <div class="section-title">
+          <h2>Our Impact</h2>
+          <p>What learners gain after training with us.</p>
+        </div>
+
+        <div class="pill-grid">
+          <div class="pill">
+            <span class="icon"></span>
+            <div><strong>Confidence</strong><br>Speak without fear in front of others</div>
+          </div>
+          <div class="pill">
+            <span class="icon"></span>
+            <div><strong>Clarity</strong><br>Organise thoughts and deliver clear messages</div>
+          </div>
+          <div class="pill">
+            <span class="icon"></span>
+            <div><strong>Presence</strong><br>Command attention through voice and body language</div>
+          </div>
+          <div class="pill">
+            <span class="icon"></span>
+            <div><strong>Growth</strong><br>Personal, academic and professional development</div>
           </div>
         </div>
       </div>
@@ -174,7 +361,7 @@
       </div>
     </section>
 
-    <!-- COACHES PREVIEW -->
+    <!-- COACHES -->
     <section id="coaches" class="section">
       <div class="container">
         <div class="section-title">
@@ -184,17 +371,63 @@
         <div class="teachers-grid">
           <article class="teacher-card">
             <div class="teacher-photo">
-               <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Cdefs%3E%3CradialGradient id='g' cx='40%25' cy='30%25' r='90%25'%3E%3Cstop offset='0%25' stop-color='%23ffffff'/%3E%3Cstop offset='100%25' stop-color='%23e5e7eb'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='64' cy='64' r='64' fill='url(%23g)'/%3E%3Ccircle cx='64' cy='50' r='22' fill='%239ca3af'/%3E%3Cpath d='M24 118c8-24 28-34 40-34s32 10 40 34' fill='%239ca3af'/%3E%3C/svg%3E" alt="Future coach">
+              <img src="assets/images/coach-hemant.jpg" alt="Hemant Sapkota" loading="lazy">
             </div>
             <h3>Hemant Sapkota</h3>
             <p class="role">Lead Coach · Public Speaking & Leadership</p>
+            <p>Hemant specialises in transforming shy students and professionals into confident speakers through practice‑based coaching.</p>
           </article>
           <article class="teacher-card">
             <div class="teacher-photo">
-               <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Cdefs%3E%3CradialGradient id='g' cx='40%25' cy='30%25' r='90%25'%3E%3Cstop offset='0%25' stop-color='%23ffffff'/%3E%3Cstop offset='100%25' stop-color='%23e5e7eb'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='64' cy='64' r='64' fill='url(%23g)'/%3E%3Ccircle cx='64' cy='50' r='22' fill='%239ca3af'/%3E%3Cpath d='M24 118c8-24 28-34 40-34s32 10 40 34' fill='%239ca3af'/%3E%3C/svg%3E" alt="Future coach">
+              <img src="assets/images/coach-sandhya.jpg" alt="Sandhya Baral" loading="lazy">
             </div>
             <h3>Sandhya Baral</h3>
             <p class="role">Coach · Communication & Personality Development</p>
+            <p>Sandhya focuses on voice, expression and personal presence, creating a safe space for learners to experiment and grow.</p>
+          </article>
+          <article class="teacher-card">
+            <div class="teacher-photo">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Cdefs%3E%3CradialGradient id='g' cx='40%25' cy='30%25' r='90%25'%3E%3Cstop offset='0%25' stop-color='%23ffffff'/%3E%3Cstop offset='100%25' stop-color='%23e5e7eb'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='64' cy='64' r='64' fill='url(%23g)'/%3E%3Ccircle cx='64' cy='50' r='22' fill='%239ca3af'/%3E%3Cpath d='M24 118c8-24 28-34 40-34s32 10 40 34' fill='%239ca3af'/%3E%3C/svg%3E" alt="">
+            </div>
+            <h3>Guest Coaches</h3>
+            <p class="role">Industry & Community Guests</p>
+            <p>From time to time we invite guest speakers, trainers and leaders to share real‑world stories and experiences.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- COURSES -->
+    <section id="courses" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Courses We Offer</h2>
+          <p>Pick the track that matches your current goal. All courses are practical and speaking‑focused.</p>
+        </div>
+        <div class="card-grid">
+          <article class="simple-card">
+            <h2>APSC — Advanced Public Speaking</h2>
+            <p>Delivery, storytelling and stage command for students, professionals and leaders.</p>
+          </article>
+          <article class="simple-card">
+            <h2>Leadership & Personality Mastery Workshop</h2>
+            <p>Develop leadership mindset, presence and confidence for school, college and career.</p>
+          </article>
+          <article class="simple-card">
+            <h2>English Language & Fluency</h2>
+            <p>Conversation, pronunciation and day‑to‑day speaking practice.</p>
+          </article>
+          <article class="simple-card">
+            <h2>IELTS / PTE Preparation</h2>
+            <p>Speaking, reading, writing and listening practice with mock tests and feedback.</p>
+          </article>
+          <article class="simple-card">
+            <h2>Kids Public Speaking</h2>
+            <p>Fun‑based communication and confidence building for children.</p>
+          </article>
+          <article class="simple-card">
+            <h2>Awareness & Community Workshops</h2>
+            <p>Voice, communication and leadership training in schools, colleges and organisations.</p>
           </article>
         </div>
       </div>
@@ -205,27 +438,97 @@
       <div class="container">
         <div class="section-title">
           <h2>Gallery & Moments</h2>
-          <p>Some visuals from classes, workshops and events. You can replace placeholders with your own photos and videos later.</p>
+          <p>Some visuals from classes, workshops and events.</p>
         </div>
 
         <div class="gallery-grid">
           <figure class="gallery-item">
-            <img src="assets/images/p1.jfif" alt="Gallery placeholder 1">
+            <img src="assets/images/p1.jfif" alt="Participant speaking on stage at a Voice Tech Nepal workshop" loading="lazy">
           </figure>
           <figure class="gallery-item">
-            <img src="assets/images/p2.jfif" alt="Gallery placeholder 2">
+            <img src="assets/images/p2.jfif" alt="Participant speaking beside the podium" loading="lazy">
           </figure>
           <figure class="gallery-item">
-            <img src="assets/images/p3.jfif" alt="Gallery placeholder 3">
+            <img src="assets/images/p3.jfif" alt="Participant speaking on stage" loading="lazy">
           </figure>
           <figure class="gallery-item">
-            <img src="assets/images/p4.jfif" alt="Gallery placeholder 4">
+            <img src="assets/images/p4.jfif" alt="Participant speaking on stage" loading="lazy">
           </figure>
           <figure class="gallery-item">
-            <img src="assets/images/p5.jfif" alt="Gallery placeholder 5">
+            <img src="assets/images/p5.jfif" alt="Participant speaking on stage" loading="lazy">
           </figure>
         </div>
+      </div>
+    </section>
 
+    <!-- BLOGS -->
+    <section id="blogs" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Blog & Articles</h2>
+          <p>Short, practical reads on speaking, confidence and communication.</p>
+        </div>
+        <div class="card-grid">
+          <article class="simple-card">
+            <h2>The Psychology Behind Stage Fear (और कसरी हटाउने?)</h2>
+            <p>Stage fear is a natural survival response. Learn how to train your body to stay calm using breathing, reframing, and exposure techniques.</p>
+            <a href="https://www.skillsyouneed.com/present/presentation-nerves.html" target="_blank" rel="noopener">Read Similar Article →</a>
+          </article>
+
+          <article class="simple-card">
+            <h2>IELTS Speaking Band 7+: The Exact Framework</h2>
+            <p>The three-step method: 1) Answer the question, 2) Extend with details, 3) Give example. Works in all IELTS speaking parts.</p>
+            <a href="https://ieltsliz.com/" target="_blank" rel="noopener">IELTS Liz Resources →</a>
+          </article>
+
+          <article class="simple-card">
+            <h2>Daily English Practice for Nepali Speakers</h2>
+            <p>Improve fluency through shadowing, 2–minute recordings and 5 essential pronunciation fixes Nepali learners need.</p>
+            <a href="https://www.ef.com/wwen/english-resources/" target="_blank" rel="noopener">Additional Practice Tools →</a>
+          </article>
+
+          <article class="simple-card">
+            <h2>How to Tell a Powerful Story on Stage</h2>
+            <p>Good stories follow a pattern: Setup → Conflict → Transformation → Message. Master this and your speeches improve instantly.</p>
+            <a href="https://storytellingwithdata.com/" target="_blank" rel="noopener">Storytelling Resources →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESOURCES -->
+    <section id="resources" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Free Resources</h2>
+          <p>Downloadable tools you can use to keep practising at home.</p>
+        </div>
+        <div class="card-grid">
+          <article class="simple-card">
+            <h2>Pronunciation Guide (PDF)</h2>
+            <p>Download our custom Nepal-focused pronunciation guide.</p>
+            <a href="https://pronuncian.com/sounds" target="_blank" rel="noopener">External Pronunciation Resource →</a>
+          </article>
+
+          <article class="simple-card">
+            <h2>Recording Exercises Checklist</h2>
+            <p>Daily 2–minute speaking tasks that rapidly improve clarity and confidence.</p>
+            <a href="https://www.vox.com/2016/5/17/11686348/how-to-improve-your-voice" target="_blank" rel="noopener">Voice Training Article →</a>
+          </article>
+
+          <article class="simple-card">
+            <h2>Recommended Books</h2>
+            <p>Our top picks: Talk Like TED, How to Speak so People Listen, The Leader’s Voice.</p>
+            <a href="https://www.goodreads.com/shelf/show/public-speaking" target="_blank" rel="noopener">See Public Speaking Books →</a>
+          </article>
+
+          <article class="simple-card">
+            <h2>Free IELTS & PTE Materials</h2>
+            <p>Speaking templates, sample questions and model answers.</p>
+            <a href="https://www.ieltsadvantage.com/" target="_blank" rel="noopener">IELTS Advantage →</a><br>
+            <a href="https://ptepractice.com/" target="_blank" rel="noopener">PTE Practice →</a>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -253,15 +556,36 @@
             <p class="contact-detail">Rajmahal Banquet & Café Building, Ground Floor</p>
             <p class="contact-note">
               Easy access for students and professionals around Jadibuti, Koteshwor and nearby areas.
-                          </p>
-              <!-- Location video thumbnail (tap to open popup) -->
-            <a href="about.html#location" class="location-video-thumb">
-              <p class="location-link">
-                <a href="about.html#location">View our location →</a>
-              </p>
-            </a>
-
+            </p>
+            <p class="location-link">
+              <a href="#location">View our location →</a>
+            </p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATION -->
+    <section id="location" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Location and Tour</h2>
+          <p>Take a short visual tour of our training space.</p>
+        </div>
+
+        <!-- subtle visual separation -->
+        <div class="soft-divider"></div>
+
+        <!-- portrait-friendly video frame -->
+        <div class="mini-video-frame portrait-video">
+          <video
+            src="assets/videos/location.mp4"
+            controls
+            muted
+            playsinline
+            preload="metadata"
+            poster="assets/images/location-poster.jpg">
+          </video>
         </div>
       </div>
     </section>
@@ -270,14 +594,14 @@
 
   <footer>
     <div class="container">
-      © 2025 Voice Tech Nepal · मेरो आवाज, मेरो परिवर्तनको शक्ति
+      © <span id="year">2026</span> Voice Tech Nepal · मेरो आवाज, मेरो परिवर्तनको शक्ति
     </div>
   </footer>
 
   <!-- WhatsApp floating -->
-  <div class="whatsapp-float" onclick="sendWhatsApp()">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp chat">
-  </div>
+  <a class="whatsapp-float" href="https://wa.me/9779761408246?text=Hi%20Voice%20Tech%20Nepal!%20I%20want%20to%20book%20a%20seat.%0A%0AName%3A%0AAge%3A%0APreferred%20time%3A%0AOnline%2FOffline%3A" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+    <svg viewBox="0 0 24 24" width="32" height="32" aria-hidden="true" focusable="false"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+  </a>
 
   <!-- Sticky bar -->
   <div class="sticky-book">
@@ -285,21 +609,5 @@
   </div>
 
   <script src="assets/js/main.js"></script>
-  
-  
-<!-- Location video popup -->
-<div id="locationVideoPopup" class="video-popup" onclick="closeLocationVideo()">
-  <div class="video-popup-inner" onclick="event.stopPropagation()">
-    <button class="video-popup-close" onclick="closeLocationVideo()">×</button>
-    <video id="locationPopupVideo"
-           controls
-           playsinline
-           muted
-           preload="none"
-           poster="assets/images/video-poster-2.jpg"
-           data-src="assets/videos/location.mp4"></video>
-  </div>
-</div>
 </body>
-
 </html>

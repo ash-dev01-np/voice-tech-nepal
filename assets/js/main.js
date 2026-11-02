@@ -1,82 +1,68 @@
 /* =========================
-   LOCATION VIDEO POPUP
+   MOBILE MENU
 ========================= */
-function openLocationVideo(){
-  const popup = document.getElementById("locationVideoPopup");
-  const video = document.getElementById("locationPopupVideo");
-  if(!popup || !video) return;
-
-  video.muted = true;
-  video.playsInline = true;
-
-  const src = video.getAttribute("data-src");
-  if(src && !video.src){
-    video.src = src;
-    video.load();
-  }
-
-  popup.classList.add("active");
-  setTimeout(()=>video.play().catch(()=>{}),80);
+function toggleMobileMenu(force) {
+  const menu = document.getElementById("mobileMenu");
+  const btn = document.querySelector(".mobile-menu-btn");
+  if (!menu) return;
+  const open = typeof force === "boolean" ? force : !menu.classList.contains("active");
+  menu.classList.toggle("active", open);
+  if (btn) btn.setAttribute("aria-expanded", String(open));
 }
 
-function closeLocationVideo(){
-  const popup = document.getElementById("locationVideoPopup");
-  const video = document.getElementById("locationPopupVideo");
-  if(!popup || !video) return;
-
-  video.pause();
-  video.currentTime = 0;
-  video.removeAttribute("src");
-  video.load();
-  popup.classList.remove("active");
-}
-
-/* =========================
-   FORCE MUTE (ANDROID FIX)
-========================= */
-document.addEventListener("play",e=>{
-  if(e.target.tagName==="VIDEO"){
-    e.target.muted = true;
-  }
-},true);
-
-/* =========================
-   ABOUT INTRO SEQUENCE
-========================= */
-document.addEventListener("DOMContentLoaded",()=>{
-  const vids = document.querySelectorAll(".about-intro");
-  if(!vids.length) return;
-
-  vids.forEach(v=>{
-    v.muted = true;
-    v.playsInline = true;
-  });
-
-  vids.forEach((v,i)=>{
-    v.addEventListener("ended",()=>{
-      if(vids[i+1]){
-        vids[i+1].play().catch(()=>{});
-      }
-    });
-  });
-
-  vids[0].play().catch(()=>{});
+// Close the menu after tapping a section link
+document.querySelectorAll("#mobileMenu a").forEach((link) => {
+  link.addEventListener("click", () => toggleMobileMenu(false));
 });
 
-function toggleMobileMenu() {
-  const menu = document.getElementById("mobileMenu");
-  if (!menu) return;
-  menu.classList.toggle("active");
-}
-
+/* =========================
+   WHATSAPP BOOKING
+========================= */
 function sendWhatsApp() {
   const phoneNumber = "9779761408246"; // no + sign
   const message = encodeURIComponent(
     "Hi Voice Tech Nepal! I want to book a seat.\n\nName:\nAge:\nPreferred time:\nOnline/Offline:"
   );
-
-  // wa.me works best on mobile + desktop
-  const url = `https://wa.me/${phoneNumber}?text=${message}`;
-  window.open(url, "_blank", "noopener,noreferrer");
+  window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank", "noopener,noreferrer");
 }
 
+/* =========================
+   ABOUT INTRO SEQUENCE
+   Plays the three intros one after another (muted),
+   starting when they scroll into view.
+========================= */
+const intros = document.querySelectorAll(".about-intro");
+
+intros.forEach((video, i) => {
+  video.addEventListener("ended", () => {
+    if (intros[i + 1]) intros[i + 1].play().catch(() => {});
+  });
+});
+
+if (intros.length && "IntersectionObserver" in window) {
+  const observer = new IntersectionObserver((entries) => {
+    if (entries.some((e) => e.isIntersecting)) {
+      intros[0].play().catch(() => {});
+      observer.disconnect();
+    }
+  }, { threshold: 0.4 });
+  observer.observe(intros[0]);
+}
+
+/* =========================
+   ONE VIDEO AT A TIME
+========================= */
+const allVideos = document.querySelectorAll("video");
+allVideos.forEach((video) => {
+  video.addEventListener("play", () => {
+    allVideos.forEach((other) => {
+      if (other !== video) other.pause();
+    });
+  });
+});
+
+/* =========================
+   FOOTER YEAR
+========================= */
+const year = document.getElementById("year");
+if (year) year.textContent = new Date().getFullYear();
