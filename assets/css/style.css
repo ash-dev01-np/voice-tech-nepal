@@ -26,7 +26,7 @@ html {
 }
 
 body {
-  padding-bottom: 44px; /* room for the sticky booking bar */
+  padding-bottom: 44px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
   background: var(--bg);
   color: var(--text);
@@ -39,16 +39,12 @@ video {
   max-width: 100%;
 }
 
-/* Layout */
 .container {
   width: 92%;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* ===============================
-   HEADER
-================================*/
 header {
   position: sticky;
   top: 0;
@@ -134,10 +130,6 @@ nav a:hover {
   background: var(--primary-dark);
 }
 
-/* ===============================
-   HERO
-   Logo banner on the right, text on clean white on the left
-================================*/
 .hero {
   position: relative;
   min-height: 600px;
@@ -246,7 +238,6 @@ nav a:hover {
   color: var(--muted);
 }
 
-/* Strip under the hero */
 .hero-strip {
   background: var(--secondary);
   color: #fff;
@@ -296,9 +287,6 @@ nav a:hover {
   color: rgba(255, 255, 255, 0.7);
 }
 
-/* ===============================
-   SECTIONS
-================================*/
 .section {
   padding: 64px 0;
 }
@@ -327,10 +315,6 @@ nav a:hover {
   color: var(--muted);
 }
 
-/* ===============================
-   CARDS
-   One style for every card on the page
-================================*/
 .contact-card,
 .schedule-card,
 .teacher-card,
@@ -343,7 +327,6 @@ nav a:hover {
   box-shadow: var(--shadow);
 }
 
-/* On white sections, cards sit on a soft grey instead */
 .section--alt .contact-card,
 .section--alt .schedule-card,
 .section--alt .teacher-card,
@@ -380,7 +363,6 @@ nav a:hover {
   margin-top: 8px;
 }
 
-/* Feature items (the short points with a red dot) */
 .pill-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -414,7 +396,6 @@ nav a:hover {
   box-shadow: 0 0 0 4px rgba(214, 0, 58, 0.1);
 }
 
-/* Simple cards (courses, blogs, resources, what makes us different) */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -445,7 +426,6 @@ nav a:hover {
   text-decoration: underline;
 }
 
-/* About */
 .about-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -453,7 +433,6 @@ nav a:hover {
   margin-bottom: 16px;
 }
 
-/* Schedule */
 .schedule-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -469,7 +448,6 @@ nav a:hover {
   font-size: 0.95rem;
 }
 
-/* Coaches */
 .teachers-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -516,7 +494,6 @@ nav a:hover {
   color: #4b5563;
 }
 
-/* Gallery: one large photo with four smaller ones */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -546,7 +523,6 @@ nav a:hover {
   aspect-ratio: auto;
 }
 
-/* Contact */
 .contact-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
@@ -587,10 +563,6 @@ nav a:hover {
   background: #000;
 }
 
-/* ===============================
-   VIDEOS
-   Wide videos stay 16:9, upright phone videos stay 9:16
-================================*/
 .about-video-frame {
   overflow: hidden;
   display: flex;
@@ -658,9 +630,6 @@ nav a:hover {
   margin: 0 auto;
 }
 
-/* ===============================
-   FOOTER, WHATSAPP, STICKY BAR
-================================*/
 footer {
   padding: 24px 0 28px;
   text-align: center;
@@ -713,9 +682,6 @@ footer {
   cursor: pointer;
 }
 
-/* ===============================
-   MOBILE MENU
-================================*/
 .mobile-menu-btn {
   display: none;
   font-size: 26px;
@@ -725,9 +691,6 @@ footer {
   color: var(--text);
 }
 
-/* ===============================
-   RESPONSIVE
-================================*/
 @media (max-width: 1080px) {
   nav a {
     padding: 8px 9px;
@@ -783,7 +746,6 @@ footer {
     text-align: center;
   }
 
-  /* Hero: banner on top, text underneath */
   .hero {
     display: block;
     min-height: 0;
