@@ -28,25 +28,62 @@ function sendWhatsApp() {
 
 /* =========================
    ABOUT INTRO SEQUENCE
-   Plays the three intros one after another (muted),
-   starting when they scroll into view.
+   Nothing plays when the page loads. The three intros play
+   one after another (muted) only once you scroll down to them,
+   and pause again when you scroll away.
 ========================= */
-const intros = document.querySelectorAll(".about-intro");
+const intros = Array.from(document.querySelectorAll(".about-intro"));
+const introGrid = document.querySelector(".intro-grid");
+let currentIntro = 0;
+let introsInView = false;
+let userScrolled = false;
 
 intros.forEach((video, i) => {
+  video.autoplay = false;
+  video.pause();
   video.addEventListener("ended", () => {
-    if (intros[i + 1]) intros[i + 1].play().catch(() => {});
+    currentIntro = i + 1 < intros.length ? i + 1 : 0;
+    if (i + 1 < intros.length && introsInView) {
+      intros[i + 1].play().catch(() => {});
+    }
   });
+  // If someone presses play on a different intro, carry on from there
+  video.addEventListener("play", () => { currentIntro = i; });
 });
 
-if (intros.length && "IntersectionObserver" in window) {
-  const observer = new IntersectionObserver((entries) => {
-    if (entries.some((e) => e.isIntersecting)) {
-      intros[0].play().catch(() => {});
-      observer.disconnect();
-    }
-  }, { threshold: 0.4 });
-  observer.observe(intros[0]);
+function updateIntros() {
+  if (!intros.length) return;
+  if (introsInView && userScrolled) {
+    intros[currentIntro].play().catch(() => {});
+  } else {
+    intros.forEach((v) => v.pause());
+  }
+}
+
+window.addEventListener("scroll", () => {
+  if (!userScrolled) {
+    userScrolled = true;
+    updateIntros();
+  }
+}, { passive: true });
+
+if (introGrid && "IntersectionObserver" in window) {
+  new IntersectionObserver((entries) => {
+    introsInView = entries[0].isIntersecting;
+    updateIntros();
+  }, { threshold: 0.5 }).observe(introGrid);
+}
+
+/* =========================
+   PAUSE ANY VIDEO SCROLLED OUT OF VIEW
+========================= */
+if ("IntersectionObserver" in window) {
+  const offscreen = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (!e.isIntersecting && !e.target.paused) e.target.pause();
+    });
+  }, { threshold: 0 });
+  document.querySelectorAll("video:not(.about-intro)").forEach((v) => offscreen.observe(v));
 }
 
 /* =========================
