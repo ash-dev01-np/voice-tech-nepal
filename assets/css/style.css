@@ -115,7 +115,8 @@ nav a {
   transition: background 0.2s ease, color 0.2s ease;
 }
 
-nav a:hover {
+nav a:hover,
+nav a.active {
   background: rgba(214, 0, 58, 0.08);
   color: var(--primary);
 }
@@ -126,8 +127,13 @@ nav a:hover {
   margin-left: 6px;
 }
 
-.btn-pill:hover {
+.btn-pill:hover,
+.btn-pill.active {
   background: var(--primary-dark);
+}
+
+.btn-pill.active {
+  box-shadow: 0 0 0 3px rgba(214, 0, 58, 0.2);
 }
 
 .hero {
@@ -459,23 +465,6 @@ nav a:hover {
   text-align: center;
 }
 
-.teacher-photo {
-  width: 112px;
-  height: 112px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin: 0 auto 14px;
-  border: 4px solid #fff;
-  box-shadow: 0 0 0 1px var(--border), 0 6px 16px rgba(15, 23, 42, 0.12);
-}
-
-.teacher-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
 .teacher-card h3 {
   font-size: 1.1rem;
   color: var(--secondary);
@@ -554,12 +543,16 @@ nav a:hover {
   margin-top: 16px;
 }
 
+.location-video .video-thumb {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
 .location-video video {
   width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
   display: block;
-  border-radius: 10px;
   background: #000;
 }
 
@@ -578,6 +571,69 @@ nav a:hover {
 
 .video-wide { aspect-ratio: 16 / 9; }
 .video-tall { aspect-ratio: 9 / 16; }
+
+.video-thumb {
+  position: relative;
+  background: #000;
+}
+
+.video-thumb video {
+  display: block;
+  width: 100%;
+}
+
+.video-play {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  background: linear-gradient(180deg, rgba(0, 20, 40, 0.04) 0%, rgba(0, 20, 40, 0.38) 100%);
+  transition: background 0.2s ease;
+}
+
+.video-play:hover {
+  background: linear-gradient(180deg, rgba(0, 20, 40, 0.1) 0%, rgba(0, 20, 40, 0.5) 100%);
+}
+
+.video-play span {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease;
+}
+
+.video-play span::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 54%;
+  transform: translate(-50%, -50%);
+  border-style: solid;
+  border-width: 11px 0 11px 18px;
+  border-color: transparent transparent transparent var(--primary);
+}
+
+.video-play:hover span {
+  transform: scale(1.08);
+}
+
+.video-play:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: -3px;
+}
+
+.video-thumb.is-playing .video-play {
+  display: none;
+}
 
 .about-video-caption {
   padding: 12px 14px;
@@ -603,9 +659,15 @@ nav a:hover {
   grid-row: 1 / span 2;
 }
 
-.intro-tall video {
+.intro-tall .video-thumb {
   flex: 1 1 auto;
   min-height: 0;
+}
+
+.intro-tall .video-thumb video {
+  position: absolute;
+  inset: 0;
+  height: 100%;
   aspect-ratio: auto;
 }
 
@@ -806,7 +868,8 @@ footer {
     margin: 0 auto;
   }
 
-  .intro-tall video {
+  .intro-tall .video-thumb {
+    flex: none;
     aspect-ratio: 9 / 16;
   }
 

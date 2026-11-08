@@ -78,5 +78,59 @@ allVideos.forEach((video) => {
   });
 });
 
+document.querySelectorAll(".video-thumb").forEach((thumb) => {
+  const video = thumb.querySelector("video");
+  const button = thumb.querySelector(".video-play");
+  if (!video || !button) return;
+  video.controls = false;
+  button.addEventListener("click", () => {
+    video.muted = false;
+    video.play().catch(() => {});
+  });
+  video.addEventListener("play", () => {
+    thumb.classList.add("is-playing");
+    video.controls = true;
+  });
+  video.addEventListener("ended", () => {
+    thumb.classList.remove("is-playing");
+    video.controls = false;
+    video.load();
+  });
+});
+
+const navLinks = Array.from(document.querySelectorAll('#mobileMenu a[href^="#"]'));
+const navTargets = navLinks.map((a) => document.querySelector(a.getAttribute("href")));
+const siteHeader = document.querySelector("header");
+let navUpdateQueued = false;
+
+function updateActiveNav() {
+  navUpdateQueued = false;
+  const line = window.scrollY + (siteHeader ? siteHeader.offsetHeight : 0) + window.innerHeight * 0.25;
+  let current = -1;
+  navTargets.forEach((section, i) => {
+    if (section && section.getBoundingClientRect().top + window.scrollY <= line) current = i;
+  });
+  if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+    current = navLinks.length - 1;
+  }
+  navLinks.forEach((link, i) => {
+    const on = i === current;
+    link.classList.toggle("active", on);
+    if (on) link.setAttribute("aria-current", "true");
+    else link.removeAttribute("aria-current");
+  });
+}
+
+function queueNavUpdate() {
+  if (!navUpdateQueued) {
+    navUpdateQueued = true;
+    requestAnimationFrame(updateActiveNav);
+  }
+}
+
+window.addEventListener("scroll", queueNavUpdate, { passive: true });
+window.addEventListener("resize", queueNavUpdate);
+updateActiveNav();
+
 const year = document.getElementById("year");
 if (year) year.textContent = new Date().getFullYear();
